@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# アプリ概要
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Letter Box について
 
-## Available Scripts
+顧客が気軽に従業員に感謝を伝えることができるアプリ。
 
-In the project directory, you can run:
+## Letter Box を構成する要素
 
-### `yarn start`
+Letter Box は以下のリポジトリがある
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 客側フロントエンド
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+顧客が感謝を伝える際に利用する画面
 
-### `yarn test`
+### 管理画面フロントエンド
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+従業員が感謝を確認するための画面
+※本リポジトリ
 
-### `yarn build`
+### バックエンド
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Letter Box のバックエンド
+フロントエンドは客側・管理画面と分かれるが、
+バックエンドは 1 つのみ
+https://github.com/yudai-nakajima/letter-box-backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### API 仕様書
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://github.com/yudai-nakajima/letter-box-api
 
-### `yarn eject`
+# 作成目的
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+「接客態度、気持ちよかったから感謝伝えたいな」と思っても、
+連絡手段が電話や問い合わせフォームしかないことが多い。
+それらを使って伝えるのは仰々しいと思い感謝の気持ちを伝えれないことが多い。
+気軽に伝える手段があると良いなと思い開発。
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 使用技術
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+※本リポジトリで利用している技術のみ記述
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- React
+- Typescript
+- ESLint
+- Prettier
+- Material UI
+- Emotion
+- React-Router-Dom
 
-## Learn More
+# 機能一覧
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ログイン機能
+- メッセージ確認機能
