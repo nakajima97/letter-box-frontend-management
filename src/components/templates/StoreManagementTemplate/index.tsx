@@ -6,6 +6,7 @@ import Header from '../../organisms/Header';
 import StoreMessageView from '../../organisms/StoreMessageView';
 
 const main = css`
+  width: 100%;
   height: calc(100vh - 64px);
 `;
 
