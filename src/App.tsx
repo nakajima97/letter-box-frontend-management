@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
-const App: FC = () => <div />;
+import LoginPage from './components/pages/LoginPage';
+
+const App: FC = () => <LoginPage />;
 
 export default App;
