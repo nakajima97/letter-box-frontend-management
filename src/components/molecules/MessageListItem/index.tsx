@@ -9,8 +9,8 @@ type Props = {
 
 const Index: FC<Props> = ({ date, message }) => (
   <div>
-    <Typography>{date.format('YYYY-MM-DD')}</Typography>
-    <Typography>{message}</Typography>
+    <Typography color="textSecondary">{date.format('YYYY-MM-DD')}</Typography>
+    <Typography color="textPrimary">{message}</Typography>
   </div>
 );
 

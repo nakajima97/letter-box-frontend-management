@@ -5,8 +5,7 @@ import { css } from '@emotion/react';
 import MessageList from '../../molecules/MessageList';
 
 const container = css`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  width: 100%;
 `;
 
 const Index: FC = () => (

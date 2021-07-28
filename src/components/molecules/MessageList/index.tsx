@@ -1,7 +1,14 @@
 import { FC } from 'react';
 import dayjs from 'dayjs';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 
 import MessageListItem from '../MessageListItem';
+
+const item = css`
+  border-bottom: 1px solid #000;
+  padding: 8px;
+`;
 
 const message = [
   { date: dayjs(), message: 'ありがとう' },
@@ -11,7 +18,9 @@ const message = [
 const Index: FC = () => (
   <div>
     {message.map((m) => (
-      <MessageListItem date={m.date} message={m.message} />
+      <div css={item}>
+        <MessageListItem date={m.date} message={m.message} />
+      </div>
     ))}
   </div>
 );
