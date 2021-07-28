@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import Header from '../../organisms/Header';
-import MessageView from '../../organisms/MessageView';
+import MessageView from '../../organisms/StoreMessageView';
 
 const Index: FC = () => (
   <>
