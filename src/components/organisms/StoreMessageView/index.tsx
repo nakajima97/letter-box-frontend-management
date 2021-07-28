@@ -8,6 +8,7 @@ import MessageList from '../../molecules/MessageList';
 const container = css`
   display: grid;
   grid-template-columns: 1fr 3fr;
+  height: 100%;
 `;
 
 const Index: FC = () => (
