@@ -11,6 +11,7 @@ Letter Box は以下のリポジトリがある
 ### 客側フロントエンド
 
 顧客が感謝を伝える際に利用する画面
+https://github.com/yudai-nakajima/letter-box-frontend-client
 
 ### 管理画面フロントエンド
 
