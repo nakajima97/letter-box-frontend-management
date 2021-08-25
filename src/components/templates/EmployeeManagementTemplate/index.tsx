@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { css } from '@emotion/react';
 
 import Header from '../../organisms/Header';
-import EmployeeMessageView from '../../organisms/EmployeeMessageView';
+import MessageView from '../../organisms/MessageView';
 
 const main = css`
   width: 100%;
@@ -16,7 +16,7 @@ const index: FC = () => (
       <Header />
     </header>
     <main css={main}>
-      <EmployeeMessageView />
+      <MessageView />
     </main>
   </>
 );
