@@ -1,14 +1,15 @@
 import { FC } from 'react';
 import dayjs from 'dayjs';
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+// import { css } from '@emotion/react';
+import { List } from '@material-ui/core';
 
 import MessageListItem from '../MessageListItem';
 
-const item = css`
-  border-bottom: 1px solid #000;
-  padding: 8px;
-`;
+// const item = css`
+//   /* border-bottom: 1px solid #000; */
+//   padding: 8px;
+// `;
 
 const message = [
   { date: dayjs(), message: 'ありがとう' },
@@ -16,13 +17,11 @@ const message = [
 ];
 
 const Index: FC = () => (
-  <div>
+  <List>
     {message.map((m) => (
-      <div css={item}>
-        <MessageListItem date={m.date} message={m.message} />
-      </div>
+      <MessageListItem date={m.date} message={m.message} />
     ))}
-  </div>
+  </List>
 );
 
 export default Index;
