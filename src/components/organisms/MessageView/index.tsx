@@ -1,19 +1,20 @@
 import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { Typography } from '@material-ui/core';
 
-import EmployeeList from '../../molecules/EmployeeList';
 import MessageList from '../../molecules/MessageList';
 
 const container = css`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 100%;
+  width: 100%;
+  margin: 10px;
 `;
 
 const Index: FC = () => (
   <div css={container}>
-    <EmployeeList />
+    <Typography gutterBottom color="textPrimary">
+      メッセージ一覧
+    </Typography>
     <MessageList />
   </div>
 );
