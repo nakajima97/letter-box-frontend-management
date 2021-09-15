@@ -3,9 +3,11 @@ import { FC, useState } from 'react';
 import { css } from '@emotion/react';
 import { TextField, Button, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 import LoginTypeSelector from '../../molecules/LoginTypeSelector';
 import LoginType from '../../../types/loginTypes';
+import createAxiosClient from '../../../api/client';
 
 const container = css`
   display: grid;
@@ -22,11 +24,40 @@ const Index: FC = () => {
   const [password, setPassword] = useState('');
   const [loginType, setLoginType] = useState<LoginType>('store');
   const history = useHistory();
+  // eslint-disable-next-line
+  const [cookie, setCookie, removeCookie] = useCookies(['jwt']);
 
-  const loginHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const axiosClient = createAxiosClient();
 
-    history.push('/employee');
+  const loginHandler = () => {
+    if (loginType === 'store') {
+      // 店舗アカウントでログイン
+    } else {
+      const params = {
+        employee_auth: {
+          employee_login_id: id,
+          password,
+        },
+      };
+
+      axiosClient
+        .post('http://localhost:3000/api/v1/employee/login', params)
+        .then((res) => {
+          // eslint-disable-next-line
+          console.log(res);
+          // eslint-disable-next-line
+          if (res.headers.authorization === undefined) {
+            // eslint-disable-next-line
+            console.log('ログイン失敗');
+          } else {
+            // eslint-disable-next-line
+            setCookie('jwt', res.headers.authorization);
+            history.push('/employee');
+          }
+        })
+        // eslint-disable-next-line
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -34,7 +65,7 @@ const Index: FC = () => {
       <Typography component="h1" variant="h5" css={title}>
         Log In
       </Typography>
-      <form css={container} onSubmit={loginHandler}>
+      <form css={container}>
         <div>
           <LoginTypeSelector value={loginType} onChange={setLoginType} />
         </div>
@@ -53,11 +84,17 @@ const Index: FC = () => {
           label="Password"
           variant="outlined"
           margin="normal"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <div>
-          <Button variant="contained" color="primary" fullWidth>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={loginHandler}
+          >
             ログイン
           </Button>
         </div>
