@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { css } from '@emotion/react';
 import { TextField, Button, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 import LoginTypeSelector from '../../molecules/LoginTypeSelector';
 import LoginType from '../../../types/loginTypes';
@@ -24,8 +24,6 @@ const Index: FC = () => {
   const [password, setPassword] = useState('');
   const [loginType, setLoginType] = useState<LoginType>('store');
   const history = useHistory();
-  // eslint-disable-next-line
-  const [cookie, setCookie, removeCookie] = useCookies(['jwt']);
 
   const axiosClient = createAxiosClient();
 
@@ -51,7 +49,7 @@ const Index: FC = () => {
             console.log('ログイン失敗');
           } else {
             // eslint-disable-next-line
-            setCookie('jwt', res.headers.authorization);
+            Cookies.set('jwt', res.headers.authorization);
             history.push('/employee');
           }
         })
