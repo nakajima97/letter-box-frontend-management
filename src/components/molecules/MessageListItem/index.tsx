@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import dayjs from 'dayjs';
-import { ListItem, Typography, Divider, ListItemText } from '@material-ui/core';
+import { ListItem, Typography, Divider, ListItemText } from '@mui/material';
 
 type Props = {
   date: dayjs.Dayjs;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 import MessageList from '../../molecules/MessageList';
 

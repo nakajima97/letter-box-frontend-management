@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
+import { Radio, RadioGroup, FormControlLabel } from '@mui/material';
 
 import LoginType from '../../../types/loginTypes';
 

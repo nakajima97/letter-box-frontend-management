@@ -1,7 +1,7 @@
 import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Container } from '@material-ui/core';
+import { Container } from '@mui/material';
 
 import Header from '../../organisms/Header';
 import LoginForm from '../../organisms/LoginForm';

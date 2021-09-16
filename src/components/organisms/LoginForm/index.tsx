@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { TextField, Button, Typography } from '@material-ui/core';
+import { TextField, Button, Typography } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
