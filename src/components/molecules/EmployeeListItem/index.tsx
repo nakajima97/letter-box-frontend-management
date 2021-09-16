@@ -1,7 +1,7 @@
 import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Divider, ListItem, ListItemText } from '@material-ui/core';
+import { Divider, ListItem, ListItemText } from '@mui/material';
 
 type Props = {
   name: string;

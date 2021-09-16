@@ -1,7 +1,7 @@
 import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { List } from '@material-ui/core';
+import { List } from '@mui/material';
 
 import EmployeeListItem from '../EmployeeListItem';
 

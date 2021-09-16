@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Toolbar, AppBar, Typography } from '@material-ui/core';
+import { Toolbar, AppBar, Typography } from '@mui/material';
 
 const Index: FC = () => (
   <AppBar position="static">

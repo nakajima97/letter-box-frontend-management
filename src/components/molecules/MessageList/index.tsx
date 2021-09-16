@@ -2,7 +2,7 @@ import { FC } from 'react';
 import dayjs from 'dayjs';
 /** @jsxImportSource @emotion/react */
 // import { css } from '@emotion/react';
-import { List } from '@material-ui/core';
+import { List } from '@mui/material';
 
 import MessageListItem from '../MessageListItem';
 
