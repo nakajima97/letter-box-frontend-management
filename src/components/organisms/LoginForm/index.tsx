@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useContext } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { TextField, Button, Typography } from '@mui/material';
@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import LoginTypeSelector from '../../molecules/LoginTypeSelector';
 import LoginType from '../../../types/loginTypes';
 import createAxiosClient from '../../../api/client';
+import { MessageContext } from '../../../contexts/Message';
 
 const container = css`
   display: grid;
@@ -24,6 +25,7 @@ const Index: FC = () => {
   const [password, setPassword] = useState('');
   const [loginType, setLoginType] = useState<LoginType>('store');
   const history = useHistory();
+  const { setMessage, setSeverity } = useContext(MessageContext);
 
   const axiosClient = createAxiosClient();
 
@@ -42,19 +44,19 @@ const Index: FC = () => {
         .post('http://localhost:3000/api/v1/employee/login', params)
         .then((res) => {
           // eslint-disable-next-line
-          console.log(res);
-          // eslint-disable-next-line
           if (res.headers.authorization === undefined) {
-            // eslint-disable-next-line
-            console.log('ログイン失敗');
+            setSeverity('error');
+            setMessage('ログインに失敗しました');
           } else {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
             history.push('/employee');
           }
         })
-        // eslint-disable-next-line
-        .catch((err) => console.log(err));
+        .catch(() => {
+          setSeverity('error');
+          setMessage('通信エラーが発生しました。');
+        });
     }
   };
 

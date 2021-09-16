@@ -5,10 +5,14 @@ import { CssBaseline } from '@mui/material';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { MessageProvider } from './contexts/Message';
+
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
-    <App />
+    <MessageProvider>
+      <App />
+    </MessageProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

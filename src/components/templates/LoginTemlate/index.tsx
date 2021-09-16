@@ -5,6 +5,7 @@ import { Container } from '@mui/material';
 
 import Header from '../../organisms/Header';
 import LoginForm from '../../organisms/LoginForm';
+import Message from '../../organisms/Message';
 
 const main = css`
   width: 100%;
@@ -20,6 +21,7 @@ const Index: FC = () => (
     <Container maxWidth="xs" css={main} component="main">
       <LoginForm />
     </Container>
+    <Message />
   </>
 );
 
