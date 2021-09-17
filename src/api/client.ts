@@ -19,7 +19,11 @@ const createAxiosClient = (): AxiosInstance => {
 
   const headers = createHeader(jwt);
 
-  return axios.create({ headers, withCredentials: true });
+  return axios.create({
+    headers,
+    withCredentials: true,
+    baseURL: 'http://localhost:3000/api/v1',
+  });
 };
 
 export default createAxiosClient;

@@ -12,10 +12,12 @@ const Index: FC = () => {
   const { loggedInType, setLoggedInType } = useContext(AuthContext);
   const { setMessage, setSeverity } = useContext(MessageContext);
   const axiosClient = createAxiosClient();
+  const jwt = Cookie.get('jwt');
 
-  const buttonText = loggedInType ? 'ログアウト' : 'ログイン';
+  const buttonText = jwt ? 'ログアウト' : 'ログイン';
 
   const handleLogout = () => {
+    if (jwt === undefined) return undefined;
     if (loggedInType === undefined) return undefined;
 
     axiosClient
