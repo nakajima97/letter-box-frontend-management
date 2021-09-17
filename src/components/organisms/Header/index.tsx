@@ -19,7 +19,7 @@ const Index: FC = () => {
     if (loggedInType === undefined) return undefined;
 
     axiosClient
-      .delete(`http://localhost:3000/api/v1/${loggedInType}/logout`)
+      .delete(`${loggedInType}/logout`)
       .then(() => {
         setLoggedInType(undefined);
         setSeverity('success');
