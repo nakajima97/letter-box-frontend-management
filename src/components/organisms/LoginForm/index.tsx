@@ -31,7 +31,30 @@ const Index: FC = () => {
 
   const loginHandler = () => {
     if (loginType === 'store') {
-      // 店舗アカウントでログイン
+      const params = {
+        store_auth: {
+          store_login_id: id,
+          password,
+        },
+      };
+
+      axiosClient
+        .post('http://localhost:3000/api/v1/store/login', params)
+        .then((res) => {
+          // eslint-disable-next-line
+          if (res.headers.authorization === undefined) {
+            setSeverity('error');
+            setMessage('ログインに失敗しました');
+          } else {
+            // eslint-disable-next-line
+            Cookies.set('jwt', res.headers.authorization);
+            history.push('/store');
+          }
+        })
+        .catch(() => {
+          setSeverity('error');
+          setMessage('通信エラーが発生しました。');
+        });
     } else {
       const params = {
         employee_auth: {
@@ -63,7 +86,7 @@ const Index: FC = () => {
   return (
     <>
       <Typography component="h1" variant="h5" css={title}>
-        Log In
+        ログイン
       </Typography>
       <form css={container}>
         <div>
