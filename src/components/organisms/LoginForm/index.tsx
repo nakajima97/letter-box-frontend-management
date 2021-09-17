@@ -41,7 +41,7 @@ const Index: FC = () => {
       };
 
       axiosClient
-        .post('http://localhost:3000/api/v1/store/login', params)
+        .post('/store/login', params)
         .then((res) => {
           // eslint-disable-next-line
           if (res.headers.authorization === undefined) {
@@ -67,7 +67,7 @@ const Index: FC = () => {
       };
 
       axiosClient
-        .post('http://localhost:3000/api/v1/employee/login', params)
+        .post('/employee/login', params)
         .then((res) => {
           // eslint-disable-next-line
           if (res.headers.authorization === undefined) {
