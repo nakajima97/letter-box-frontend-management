@@ -86,7 +86,7 @@ const Index: FC = () => {
   return (
     <>
       <Typography component="h1" variant="h5" css={title}>
-        Log In
+        ログイン
       </Typography>
       <form css={container}>
         <div>
