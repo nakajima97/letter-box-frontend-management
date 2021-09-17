@@ -9,6 +9,7 @@ import LoginTypeSelector from '../../molecules/LoginTypeSelector';
 import LoginType from '../../../types/loginTypes';
 import createAxiosClient from '../../../api/client';
 import { MessageContext } from '../../../contexts/Message';
+import { AuthContext } from '../../../contexts/Auth';
 
 const container = css`
   display: grid;
@@ -26,6 +27,7 @@ const Index: FC = () => {
   const [loginType, setLoginType] = useState<LoginType>('store');
   const history = useHistory();
   const { setMessage, setSeverity } = useContext(MessageContext);
+  const { setLoggedInType } = useContext(AuthContext);
 
   const axiosClient = createAxiosClient();
 
@@ -48,6 +50,7 @@ const Index: FC = () => {
           } else {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
+            setLoggedInType('store');
             history.push('/store');
           }
         })
@@ -73,6 +76,7 @@ const Index: FC = () => {
           } else {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
+            setLoggedInType('employee');
             history.push('/employee');
           }
         })

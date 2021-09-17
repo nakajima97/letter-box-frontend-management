@@ -6,12 +6,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { MessageProvider } from './contexts/Message';
+import { AuthProvider } from './contexts/Auth';
 
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
     <MessageProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </MessageProvider>
   </React.StrictMode>,
   document.getElementById('root'),
