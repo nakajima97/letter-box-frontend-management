@@ -48,7 +48,7 @@ const Index: FC = () => {
           } else {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
-            history.push('/employee');
+            history.push('/store');
           }
         })
         .catch(() => {
