@@ -6,6 +6,7 @@ import StoreManagementPage from './components/pages/StoreManagementPage';
 import EmployeeManagementPage from './components/pages/EmployeeManagementPage';
 import MessageList from './components/pages/MessageListPage';
 import NotFound from './components/pages/NotFound';
+import LoggedInRoute from './routes/LoggedInRoute';
 
 const App: FC = () => (
   <Router>
@@ -13,15 +14,15 @@ const App: FC = () => (
       <Route exact path={['/', '/login']}>
         <LoginPage />
       </Route>
-      <Route path="/store">
+      <LoggedInRoute path="/store">
         <StoreManagementPage />
-      </Route>
-      <Route path="/employee">
+      </LoggedInRoute>
+      <LoggedInRoute path="/employee">
         <EmployeeManagementPage />
-      </Route>
-      <Route path="/messages/:id">
+      </LoggedInRoute>
+      <LoggedInRoute path="/messages/:id">
         <MessageList />
-      </Route>
+      </LoggedInRoute>
       <Route>
         <NotFound />
       </Route>
