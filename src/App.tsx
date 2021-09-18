@@ -8,6 +8,8 @@ import MessageList from './components/pages/MessageListPage';
 import NotFound from './components/pages/NotFound';
 import LoggedInRoute from './routes/LoggedInRoute';
 import NotLoggedInRoute from './routes/NotLoggedInRoute';
+import StoreLoggedInRoute from './routes/StoreLoggedInRoute';
+import EmployeeLoggedInRoute from './routes/EmployeeLoggedInRoute';
 
 const App: FC = () => (
   <Router>
@@ -15,12 +17,12 @@ const App: FC = () => (
       <NotLoggedInRoute exact path={['/', '/login']}>
         <LoginPage />
       </NotLoggedInRoute>
-      <LoggedInRoute path="/store">
+      <StoreLoggedInRoute path="/store">
         <StoreManagementPage />
-      </LoggedInRoute>
-      <LoggedInRoute path="/employee">
+      </StoreLoggedInRoute>
+      <EmployeeLoggedInRoute path="/employee">
         <EmployeeManagementPage />
-      </LoggedInRoute>
+      </EmployeeLoggedInRoute>
       <LoggedInRoute path="/messages/:id">
         <MessageList />
       </LoggedInRoute>

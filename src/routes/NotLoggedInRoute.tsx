@@ -9,7 +9,6 @@ type Props = {
 
 const NotLoggedInRoute: FC<Props> = ({ exact = false, path, children }) => {
   const history = useHistory();
-
   const jwt = Cookies.get('jwt');
 
   if (jwt) history.goBack();
