@@ -6,22 +6,26 @@ import StoreManagementPage from './components/pages/StoreManagementPage';
 import EmployeeManagementPage from './components/pages/EmployeeManagementPage';
 import MessageList from './components/pages/MessageListPage';
 import NotFound from './components/pages/NotFound';
+import LoggedInRoute from './routes/LoggedInRoute';
+import NotLoggedInRoute from './routes/NotLoggedInRoute';
+import StoreLoggedInRoute from './routes/StoreLoggedInRoute';
+import EmployeeLoggedInRoute from './routes/EmployeeLoggedInRoute';
 
 const App: FC = () => (
   <Router>
     <Switch>
-      <Route exact path={['/', '/login']}>
+      <NotLoggedInRoute exact path={['/', '/login']}>
         <LoginPage />
-      </Route>
-      <Route path="/store">
+      </NotLoggedInRoute>
+      <StoreLoggedInRoute path="/store">
         <StoreManagementPage />
-      </Route>
-      <Route path="/employee">
+      </StoreLoggedInRoute>
+      <EmployeeLoggedInRoute path="/employee">
         <EmployeeManagementPage />
-      </Route>
-      <Route path="/messages/:id">
+      </EmployeeLoggedInRoute>
+      <LoggedInRoute path="/messages/:id">
         <MessageList />
-      </Route>
+      </LoggedInRoute>
       <Route>
         <NotFound />
       </Route>
