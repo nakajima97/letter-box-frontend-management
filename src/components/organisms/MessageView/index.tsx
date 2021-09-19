@@ -36,7 +36,6 @@ const Index: FC = () => {
 
       axiosClient
         .get('messages', params)
-        // eslint-disable-next-line
         .then((res: ResponseType) => {
           if (res.data.message !== 'No data') {
             setMessages(res.data.data);
