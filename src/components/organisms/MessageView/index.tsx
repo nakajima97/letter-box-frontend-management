@@ -6,6 +6,14 @@ import { Typography } from '@mui/material';
 import MessageList from '../../molecules/MessageList';
 import createAxiosClient from '../../../api/client';
 import { AuthContext } from '../../../contexts/Auth';
+import MessageType from '../../../types/messageType';
+
+type ResponseType = {
+  data: {
+    message: string;
+    data: [MessageType];
+  };
+};
 
 const container = css`
   width: 100%;
@@ -14,7 +22,9 @@ const container = css`
 
 const Index: FC = () => {
   // eslint-disable-next-line
-  const [message, setMessages] = useState();
+  const [messages, setMessages] = useState<MessageType[] | undefined>(
+    undefined,
+  );
   const axiosClient = createAxiosClient();
   const { loggedInUserId, loggedInType } = useContext(AuthContext);
 
@@ -27,7 +37,11 @@ const Index: FC = () => {
       axiosClient
         .get('messages', params)
         // eslint-disable-next-line
-        .then((res) => console.log(res))
+        .then((res: ResponseType) => {
+          if (res.data.message !== 'No data') {
+            setMessages(res.data.data);
+          }
+        })
         // eslint-disable-next-line
         .catch((err) => console.log(err));
     }
@@ -38,7 +52,7 @@ const Index: FC = () => {
       <Typography gutterBottom color="textPrimary">
         メッセージ一覧
       </Typography>
-      <MessageList />
+      {messages && <MessageList />}
     </div>
   );
 };
