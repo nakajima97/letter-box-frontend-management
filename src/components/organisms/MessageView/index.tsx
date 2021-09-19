@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useContext } from 'react';
+import { FC, useState, useEffect, useContext, useMemo } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { Typography } from '@mui/material';
@@ -26,8 +26,8 @@ const Index: FC = () => {
   const [messages, setMessages] = useState<MessageType[] | undefined>(
     undefined,
   );
-  const axiosClient = createAxiosClient();
   const { loggedInUserId, loggedInType } = useContext(AuthContext);
+  const axiosClient = useMemo(() => createAxiosClient(), []);
 
   useEffect(() => {
     if (loggedInType) {
@@ -51,7 +51,7 @@ const Index: FC = () => {
         // eslint-disable-next-line
         .catch((err) => console.log(err));
     }
-  }, [axiosClient, loggedInType, loggedInUserId]);
+  }, [loggedInType, loggedInUserId, axiosClient]);
 
   return (
     <div css={container}>
