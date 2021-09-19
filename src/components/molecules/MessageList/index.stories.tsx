@@ -6,4 +6,4 @@ export default {
   title: 'molecules/MessageList',
 };
 
-export const Default: FC = () => <MessageList />;
+export const Default: FC = () => <p>本体改修中</p>;

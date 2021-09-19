@@ -17,7 +17,7 @@ const Index: FC<Props> = ({ date, message }) => {
 
   return (
     <>
-      <ListItem>
+      <ListItem key={date.format('YYYY-MM-DD')}>
         <ListItemText primary={text} />
       </ListItem>
       <Divider />

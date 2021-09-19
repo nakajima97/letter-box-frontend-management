@@ -1,8 +1,12 @@
 import dayjs from 'dayjs';
 
 type MessageType = {
-  date: dayjs.Dayjs;
-  message: string;
+  id: number;
+  storeId: number;
+  employeeId?: number;
+  messageText: string;
+  createdAt: dayjs.Dayjs;
+  updateAt: dayjs.Dayjs;
 };
 
 export default MessageType;

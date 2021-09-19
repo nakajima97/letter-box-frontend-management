@@ -6,4 +6,4 @@ export default {
   title: 'organisms/MessageView',
 };
 
-export const Default: FC = () => <MessageView />;
+export const Default: FC = () => <div>改修中</div>;

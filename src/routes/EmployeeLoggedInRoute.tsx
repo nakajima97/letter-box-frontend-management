@@ -12,9 +12,6 @@ const LoggedInRoute: FC<Props> = ({ path, children }) => {
   const { loggedInType } = useContext(AuthContext);
   const history = useHistory();
 
-  // eslint-disable-next-line
-  console.log(loggedInType);
-
   useEffect(() => {
     if (loggedInType === 'store') history.push('/store');
   }, [loggedInType, history]);

@@ -3,6 +3,7 @@ import { FC, useState, useEffect, useContext } from 'react';
 import { css } from '@emotion/react';
 import { Typography } from '@mui/material';
 
+import dayjs from 'dayjs';
 import MessageList from '../../molecules/MessageList';
 import createAxiosClient from '../../../api/client';
 import { AuthContext } from '../../../contexts/Auth';
@@ -10,6 +11,7 @@ import MessageType from '../../../types/messageType';
 
 type ResponseType = {
   data: {
+    // eslint-disable-next-line
     message: string;
     data: [MessageType];
   };
@@ -21,7 +23,6 @@ const container = css`
 `;
 
 const Index: FC = () => {
-  // eslint-disable-next-line
   const [messages, setMessages] = useState<MessageType[] | undefined>(
     undefined,
   );
@@ -38,7 +39,13 @@ const Index: FC = () => {
         .get('messages', params)
         .then((res: ResponseType) => {
           if (res.data.message !== 'No data') {
-            setMessages(res.data.data);
+            setMessages(
+              res.data.data.map((d) => ({
+                ...d,
+                createdAt: dayjs(d.createdAt),
+                updateAt: dayjs(d.updateAt),
+              })),
+            );
           }
         })
         // eslint-disable-next-line
@@ -51,7 +58,7 @@ const Index: FC = () => {
       <Typography gutterBottom color="textPrimary">
         メッセージ一覧
       </Typography>
-      {messages && <MessageList />}
+      {messages && <MessageList messages={messages} />}
     </div>
   );
 };
