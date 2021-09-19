@@ -51,7 +51,7 @@ const AuthProvider: FC = ({ children }) => {
   }, [axiosClient]);
 
   useEffect(() => {
-    axiosClient('user_info')
+    axiosClient('check/user_id')
       .then((res: UserIdResponseType) => {
         if (res.data.user_id === 'none') {
           setLoggedInUserId(undefined);
