@@ -18,8 +18,8 @@ type Props = {
 const Index: FC<Props> = ({ employees }) => (
   <List css={container}>
     {employees &&
-      employees.map((employee) => (
-        <EmployeeListItem name={`${employee.firstName} ${employee.lastName}`} />
+      employees.map((e) => (
+        <EmployeeListItem firstName={e.firstName} lastName={e.lastName} />
       ))}
   </List>
 );
