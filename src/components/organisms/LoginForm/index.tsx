@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 import LoginTypeSelector from '../../molecules/LoginTypeSelector';
-import LoginType from '../../../types/loginTypes';
+import LoginType from '../../../types/loginType';
 import createAxiosClient from '../../../api/client';
 import { MessageContext } from '../../../contexts/Message';
 import { AuthContext } from '../../../contexts/Auth';

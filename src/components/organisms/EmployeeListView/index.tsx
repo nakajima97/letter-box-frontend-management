@@ -10,11 +10,15 @@ const container = css`
   margin: 10px;
 `;
 
-const Index: FC = () => (
-  <div css={container}>
-    <Typography gutterBottom>従業員一覧</Typography>
-    <EmployeeList />
-  </div>
-);
+const Index: FC = () => {
+  const [employees, setEmployees] = useState<>();
+
+  return (
+    <div css={container}>
+      <Typography gutterBottom>従業員一覧</Typography>
+      <EmployeeList />
+    </div>
+  );
+};
 
 export default Index;

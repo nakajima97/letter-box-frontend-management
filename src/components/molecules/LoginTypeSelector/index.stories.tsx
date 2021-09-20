@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 
 import LoginTypeSelector from './index';
-import LoginType from '../../../types/loginTypes';
+import LoginType from '../../../types/loginType';
 
 export default {
   component: LoginTypeSelector,

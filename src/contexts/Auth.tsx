@@ -1,6 +1,6 @@
 import React, { FC, createContext, useState, useEffect } from 'react';
 
-import LoginType from '../types/loginTypes';
+import LoginType from '../types/loginType';
 import createAxiosClient from '../api/client';
 
 type ContextType = {
