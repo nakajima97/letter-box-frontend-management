@@ -34,6 +34,9 @@ const Index: FC = () => {
     }
   }, [loggedInUserId, axiosClient]);
 
+  if (employees === undefined)
+    return <Typography>従業員が登録されておりません。</Typography>;
+
   return (
     <div css={container}>
       <Typography gutterBottom>従業員一覧</Typography>

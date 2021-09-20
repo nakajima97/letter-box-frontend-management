@@ -44,3 +44,18 @@ export const Default: FC = () => {
 
   return <EmployeeListView />;
 };
+
+export const NoEmployee: FC = () => {
+  const { setLoggedInType, setLoggedInUserId } = useContext(AuthContext);
+
+  const mock = new MockAdapter(axios);
+
+  setLoggedInType('store');
+  setLoggedInUserId('1');
+
+  mock
+    .onGet('http://localhost:3000/api/v1/employees/search?store_id=1')
+    .reply(200);
+
+  return <EmployeeListView />;
+};
