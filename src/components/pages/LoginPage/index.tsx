@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import LoginTemplate from '../../templates/LoginTemlate';
+import LoginTemplate from '../../templates/LoginTemplate';
 import useLoggedInState from '../../../hooks/useLoggedInState';
 
 const Index: FC = () => {
