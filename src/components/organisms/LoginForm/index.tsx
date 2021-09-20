@@ -27,7 +27,7 @@ const Index: FC = () => {
   const [loginType, setLoginType] = useState<LoginType>('store');
   const history = useHistory();
   const { setMessage, setSeverity } = useContext(MessageContext);
-  const { setLoggedInType } = useContext(AuthContext);
+  const { setLoggedInType, setLoggedInUserId } = useContext(AuthContext);
 
   const axiosClient = createAxiosClient();
 
@@ -44,6 +44,8 @@ const Index: FC = () => {
         .post('store/login', params)
         .then((res) => {
           // eslint-disable-next-line
+          console.log(res);
+          // eslint-disable-next-line
           if (res.headers.authorization === undefined) {
             setSeverity('error');
             setMessage('ログインに失敗しました');
@@ -51,6 +53,8 @@ const Index: FC = () => {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
             setLoggedInType('store');
+            // eslint-disable-next-line
+            setLoggedInUserId(res.data.userId);
             history.push('/store');
           }
         })
@@ -76,6 +80,8 @@ const Index: FC = () => {
           } else {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
+            // eslint-disable-next-line
+            setLoggedInUserId(res.data.userId);
             setLoggedInType('employee');
             history.push('/employee');
           }

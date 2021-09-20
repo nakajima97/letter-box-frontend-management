@@ -1,4 +1,4 @@
-import React, { FC, createContext, useState, useEffect } from 'react';
+import React, { FC, createContext, useState, useEffect, useMemo } from 'react';
 
 import LoginType from '../types/loginType';
 import createAxiosClient from '../api/client';
@@ -26,7 +26,7 @@ type UserIdResponseType = {
 const AuthContext = createContext({} as ContextType);
 
 const AuthProvider: FC = ({ children }) => {
-  const axiosClient = createAxiosClient();
+  const axiosClient = useMemo(() => createAxiosClient(), []);
 
   const [loggedInType, setLoggedInType] = useState<LoginType | undefined>(
     undefined,

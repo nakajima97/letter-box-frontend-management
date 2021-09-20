@@ -6,4 +6,4 @@ export default {
   title: 'molecules/EmployeeList',
 };
 
-export const Default: FC = () => <EmployeeList />;
+export const Default: FC = () => <p>改修中</p>;
