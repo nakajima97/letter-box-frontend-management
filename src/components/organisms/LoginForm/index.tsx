@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 import LoginTypeSelector from '../../molecules/LoginTypeSelector';
-import LoginType from '../../../types/loginTypes';
+import LoginType from '../../../types/loginType';
 import createAxiosClient from '../../../api/client';
 import { MessageContext } from '../../../contexts/Message';
 import { AuthContext } from '../../../contexts/Auth';
@@ -27,7 +27,7 @@ const Index: FC = () => {
   const [loginType, setLoginType] = useState<LoginType>('store');
   const history = useHistory();
   const { setMessage, setSeverity } = useContext(MessageContext);
-  const { setLoggedInType } = useContext(AuthContext);
+  const { setLoggedInType, setLoggedInUserId } = useContext(AuthContext);
 
   const axiosClient = createAxiosClient();
 
@@ -51,6 +51,8 @@ const Index: FC = () => {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
             setLoggedInType('store');
+            // eslint-disable-next-line
+            setLoggedInUserId(res.data.userId);
             history.push('/store');
           }
         })
@@ -76,6 +78,8 @@ const Index: FC = () => {
           } else {
             // eslint-disable-next-line
             Cookies.set('jwt', res.headers.authorization);
+            // eslint-disable-next-line
+            setLoggedInUserId(res.data.userId);
             setLoggedInType('employee');
             history.push('/employee');
           }

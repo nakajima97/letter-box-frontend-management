@@ -4,19 +4,23 @@ import { css } from '@emotion/react';
 import { List } from '@mui/material';
 
 import EmployeeListItem from '../EmployeeListItem';
+import EmployeeType from '../../../types/employeeType';
 
 const container = css`
   border-right: 1px solid #000;
   height: 100%;
 `;
 
-const employees = [{ name: '山田 太郎' }, { name: '山田 次郎' }];
+type Props = {
+  employees: EmployeeType[] | undefined;
+};
 
-const Index: FC = () => (
+const Index: FC<Props> = ({ employees }) => (
   <List css={container}>
-    {employees.map((employee) => (
-      <EmployeeListItem name={employee.name} />
-    ))}
+    {employees &&
+      employees.map((e) => (
+        <EmployeeListItem firstName={e.firstName} lastName={e.lastName} />
+      ))}
   </List>
 );
 

@@ -4,17 +4,18 @@ import { css } from '@emotion/react';
 import { Divider, ListItem, ListItemText } from '@mui/material';
 
 type Props = {
-  name: string;
+  firstName: string;
+  lastName: string;
 };
 
 const item = css`
   padding: 8px;
 `;
 
-const Index: FC<Props> = ({ name }) => (
+const Index: FC<Props> = ({ firstName, lastName }) => (
   <>
     <ListItem css={item}>
-      <ListItemText primary={name} />
+      <ListItemText primary={`${firstName} ${lastName}`} />
     </ListItem>
     <Divider />
   </>

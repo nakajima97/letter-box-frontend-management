@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Radio, RadioGroup, FormControlLabel } from '@mui/material';
 
-import LoginType from '../../../types/loginTypes';
+import LoginType from '../../../types/loginType';
 
 type Props = {
   value: LoginType;

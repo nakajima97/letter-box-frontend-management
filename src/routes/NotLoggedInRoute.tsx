@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Route, useHistory } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import { AuthContext } from '../contexts/Auth';
 
 type Props = {
   path: string | Array<string>;
@@ -9,9 +9,9 @@ type Props = {
 
 const NotLoggedInRoute: FC<Props> = ({ exact = false, path, children }) => {
   const history = useHistory();
-  const jwt = Cookies.get('jwt');
+  const { loggedInType } = useContext(AuthContext);
 
-  if (jwt) history.goBack();
+  if (loggedInType) history.push(`/${loggedInType}`);
 
   return (
     <div>
