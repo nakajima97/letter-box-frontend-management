@@ -13,6 +13,10 @@ const container = css`
   margin: 10px;
 `;
 
+type ResponseType = {
+  employees: EmployeeType[];
+};
+
 const Index: FC = () => {
   const [employees, setEmployees] = useState<EmployeeType[] | undefined>(
     undefined,
@@ -21,12 +25,9 @@ const Index: FC = () => {
   const axiosClient = useMemo(() => createAxiosClient(), []);
 
   useEffect(() => {
-    // eslint-disable-next-line
-    console.log(loggedInUserId);
     if (loggedInUserId) {
       axiosClient
-        .get(`employees/search?store_id=${loggedInUserId}`)
-        // eslint-disable-next-line
+        .get<ResponseType>(`employees/search?store_id=${loggedInUserId}`)
         .then((res) => setEmployees(res.data.employees))
         // eslint-disable-next-line
         .catch((err) => console.log(err));

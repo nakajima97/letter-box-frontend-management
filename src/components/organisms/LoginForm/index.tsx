@@ -44,8 +44,6 @@ const Index: FC = () => {
         .post('store/login', params)
         .then((res) => {
           // eslint-disable-next-line
-          console.log(res);
-          // eslint-disable-next-line
           if (res.headers.authorization === undefined) {
             setSeverity('error');
             setMessage('ログインに失敗しました');
