@@ -3,19 +3,25 @@ import { FC } from 'react';
 import { css } from '@emotion/react';
 
 import Header from '../../organisms/Header';
-// import MessageView from '../../organisms/MessageView';
+import MessageView from '../../organisms/MessageView';
 
 const main = css`
   width: 100%;
   height: calc(100vh - 64px);
 `;
 
-const index: FC = () => (
+type Props = {
+  id: number;
+};
+
+const index: FC<Props> = ({ id }) => (
   <>
     <header>
       <Header />
     </header>
-    <main css={main}>{/* <MessageView /> */}</main>
+    <main css={main}>
+      <MessageView type="employee" id={id} />
+    </main>
   </>
 );
 
