@@ -46,16 +46,15 @@ export default {
   decorators: [(story: () => JSX.Element): JSX.Element => myDecorator(story)],
 };
 
-// export const Default: FC = () => {
-//   const { setLoggedInType, setLoggedInUserId } = useContext(AuthContext);
+export const Default: FC = () => {
+  const { setLoggedInType, setLoggedInUserId } = useContext(AuthContext);
 
-//   const mock = new MockAdapter(axios);
+  const mock = new MockAdapter(axios);
 
-//   setLoggedInType('employee');
-//   setLoggedInUserId('1');
+  setLoggedInType('employee');
+  setLoggedInUserId('1');
 
-//   mock.onGet('http://localhost:3000/api/v1/messages').reply(200, mockResponse);
+  mock.onGet('http://localhost:3000/api/v1/messages').reply(200, mockResponse);
 
-//   return <MessageView />;
-// };
-export const Default: FC = () => <p>改修中</p>;
+  return <MessageView type="employee" id={1} />;
+};
