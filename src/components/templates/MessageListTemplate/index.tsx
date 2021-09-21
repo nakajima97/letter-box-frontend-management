@@ -3,10 +3,14 @@ import React, { FC } from 'react';
 import MessageView from '../../organisms/MessageView';
 import Header from '../../organisms/Header';
 
-const Index: FC = () => (
+type Props = {
+  id: number;
+};
+
+const Index: FC<Props> = ({ id }) => (
   <>
     <Header />
-    <MessageView />
+    <MessageView type="employee" id={id} />
   </>
 );
 
