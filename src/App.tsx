@@ -23,7 +23,7 @@ const App: FC = () => (
       <EmployeeLoggedInRoute path="/employee">
         <EmployeeManagementPage />
       </EmployeeLoggedInRoute>
-      <LoggedInRoute path="/messages/:id">
+      <LoggedInRoute path="/store/message/:id">
         <MessageList />
       </LoggedInRoute>
       <Route>
