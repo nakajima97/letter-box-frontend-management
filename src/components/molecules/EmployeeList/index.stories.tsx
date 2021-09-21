@@ -7,9 +7,10 @@ export default {
   title: 'molecules/EmployeeList',
 };
 
-const employees: EmployeeType[] = [
-  { id: 1, firstName: '竈門', lastName: 'ピカチュウ' },
-  { id: 2, firstName: '鬼舞辻', lastName: 'ジバニャン' },
-];
+// const employees: EmployeeType[] = [
+//   { id: 1, firstName: '竈門', lastName: 'ピカチュウ' },
+//   { id: 2, firstName: '鬼舞辻', lastName: 'ジバニャン' },
+// ];
 
-export const Default: FC = () => <EmployeeList employees={employees} />;
+export const Default: FC = () => <p>改修中</p>;
+// export const Default: FC = () => <EmployeeList employees={employees} />;
