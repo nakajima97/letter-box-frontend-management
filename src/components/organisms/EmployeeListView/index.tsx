@@ -2,6 +2,7 @@ import { FC, useEffect, useContext, useMemo, useState } from 'react';
 import { Typography } from '@mui/material';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { useHistory } from 'react-router-dom';
 
 import EmployeeList from '../../molecules/EmployeeList';
 import createAxiosClient from '../../../api/client';
@@ -23,6 +24,7 @@ const Index: FC = () => {
   );
   const { loggedInUserId } = useContext(AuthContext);
   const axiosClient = useMemo(() => createAxiosClient(), []);
+  const history = useHistory();
 
   useEffect(() => {
     if (loggedInUserId) {
@@ -34,13 +36,17 @@ const Index: FC = () => {
     }
   }, [loggedInUserId, axiosClient]);
 
+  const onClick = (employeeId: number) => {
+    history.push(`/store/message/${employeeId}`);
+  };
+
   if (employees === undefined)
     return <Typography>従業員が登録されておりません。</Typography>;
 
   return (
     <div css={container}>
       <Typography gutterBottom>従業員一覧</Typography>
-      <EmployeeList employees={employees} />
+      <EmployeeList employees={employees} onClick={onClick} />
     </div>
   );
 };

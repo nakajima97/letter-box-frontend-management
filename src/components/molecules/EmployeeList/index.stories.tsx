@@ -12,4 +12,9 @@ const employees: EmployeeType[] = [
   { id: 2, firstName: '鬼舞辻', lastName: 'ジバニャン' },
 ];
 
-export const Default: FC = () => <EmployeeList employees={employees} />;
+// eslint-disable-next-line
+const onClick = (employeeId: number) => {};
+
+export const Default: FC = () => (
+  <EmployeeList employees={employees} onClick={onClick} />
+);

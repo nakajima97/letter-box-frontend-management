@@ -5,9 +5,10 @@ import { AuthContext } from '../contexts/Auth';
 
 type Props = {
   path: string;
+  exact?: boolean;
 };
 
-const LoggedInRoute: FC<Props> = ({ path, children }) => {
+const LoggedInRoute: FC<Props> = ({ path, children, exact = false }) => {
   const jwt = Cookies.get('jwt');
   const { loggedInType } = useContext(AuthContext);
   const history = useHistory();
@@ -18,7 +19,9 @@ const LoggedInRoute: FC<Props> = ({ path, children }) => {
 
   return jwt ? (
     <div>
-      <Route path={path}>{children}</Route>
+      <Route exact={exact} path={path}>
+        {children}
+      </Route>
     </div>
   ) : (
     <Redirect to="/" />

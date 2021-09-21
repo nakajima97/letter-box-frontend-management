@@ -10,13 +10,17 @@ const main = css`
   height: calc(100vh - 64px);
 `;
 
-const index: FC = () => (
+type Props = {
+  id: number;
+};
+
+const index: FC<Props> = ({ id }) => (
   <>
     <header>
       <Header />
     </header>
     <main css={main}>
-      <MessageView />
+      <MessageView type="employee" id={id} />
     </main>
   </>
 );

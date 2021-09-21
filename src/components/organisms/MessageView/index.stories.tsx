@@ -56,5 +56,5 @@ export const Default: FC = () => {
 
   mock.onGet('http://localhost:3000/api/v1/messages').reply(200, mockResponse);
 
-  return <MessageView />;
+  return <MessageView type="employee" id={1} />;
 };

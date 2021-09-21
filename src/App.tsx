@@ -17,13 +17,13 @@ const App: FC = () => (
       <NotLoggedInRoute exact path={['/', '/login']}>
         <LoginPage />
       </NotLoggedInRoute>
-      <StoreLoggedInRoute path="/store">
+      <StoreLoggedInRoute exact path="/store">
         <StoreManagementPage />
       </StoreLoggedInRoute>
       <EmployeeLoggedInRoute path="/employee">
         <EmployeeManagementPage />
       </EmployeeLoggedInRoute>
-      <LoggedInRoute path="/messages/:id">
+      <LoggedInRoute path="/store/message/:id">
         <MessageList />
       </LoggedInRoute>
       <Route>
