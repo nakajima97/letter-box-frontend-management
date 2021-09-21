@@ -13,13 +13,19 @@ const container = css`
 
 type Props = {
   employees: EmployeeType[] | undefined;
+  onClick: (employeeId: number) => void;
 };
 
-const Index: FC<Props> = ({ employees }) => (
+const Index: FC<Props> = ({ employees, onClick }) => (
   <List css={container}>
     {employees &&
       employees.map((e) => (
-        <EmployeeListItem firstName={e.firstName} lastName={e.lastName} />
+        <EmployeeListItem
+          id={e.id}
+          firstName={e.firstName}
+          lastName={e.lastName}
+          onClick={onClick}
+        />
       ))}
   </List>
 );
