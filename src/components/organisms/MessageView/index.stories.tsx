@@ -1,32 +1,10 @@
 import { FC, useContext } from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import dayjs from 'dayjs';
 
 import MessageView from './index';
 import { AuthContext, AuthProvider } from '../../../contexts/Auth';
-
-const mockResponse = {
-  message: 'Success',
-  data: [
-    {
-      id: 1,
-      storeId: 1,
-      employeeId: 1,
-      messageText: 'ありがとう',
-      updateAt: dayjs('2021/09/19'),
-      createdAt: dayjs('2021/09/19'),
-    },
-    {
-      id: 2,
-      storeId: 1,
-      employeeId: 1,
-      messageText: 'Thank you!!',
-      updateAt: dayjs('2021/09/19'),
-      createdAt: dayjs('2021/09/19'),
-    },
-  ],
-};
+import { mockResponse2Messages, mockResponseNoMessage } from './MockResnpose';
 
 type Props = {
   storyFn: () => JSX.Element;
@@ -54,7 +32,24 @@ export const Default: FC = () => {
   setLoggedInType('employee');
   setLoggedInUserId('1');
 
-  mock.onGet('http://localhost:3000/api/v1/messages').reply(200, mockResponse);
+  mock
+    .onGet('http://localhost:3000/api/v1/messages?employee_id=1')
+    .reply(200, mockResponse2Messages);
+
+  return <MessageView type="employee" id={1} />;
+};
+
+export const NoMessage: FC = () => {
+  const { setLoggedInType, setLoggedInUserId } = useContext(AuthContext);
+
+  const mock = new MockAdapter(axios);
+
+  setLoggedInType('employee');
+  setLoggedInUserId('1');
+
+  mock
+    .onGet('http://localhost:3000/api/v1/messages')
+    .reply(200, mockResponseNoMessage);
 
   return <MessageView type="employee" id={1} />;
 };
