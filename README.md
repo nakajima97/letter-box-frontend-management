@@ -42,6 +42,10 @@ https://github.com/yudai-nakajima/letter-box-api
 - Material UI
 - Emotion
 - React-Router-Dom
+- storybook
+- chromatic
+  - スナップショットテスト
+- axios 
 
 # 機能一覧
 
