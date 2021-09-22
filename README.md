@@ -40,6 +40,7 @@ https://github.com/yudai-nakajima/letter-box-api
 ※本リポジトリで利用している技術のみ記述
 
 - React
+- create-react-app
 - Typescript
 - ESLint
 - Prettier
