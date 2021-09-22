@@ -32,7 +32,8 @@ https://github.com/yudai-nakajima/letter-box-backend
 https://github.com/yudai-nakajima/letter-box-api
 
 # 作成目的
-店員に対して気軽にメッセージを送れるアプリを作成したいと思ったため。
+店員に対して気軽にメッセージを送れるアプリがあったら
+感謝の気持ちとか伝えやすいよなと思ったため。
 
 # 使用技術
 
