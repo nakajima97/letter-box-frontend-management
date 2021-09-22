@@ -42,7 +42,7 @@ https://github.com/yudai-nakajima/letter-box-api
 - Typescript
 - ESLint
 - Prettier
-- Material UI
+- Material UI v5
 - Emotion
 - React-Router-Dom
 - storybook
