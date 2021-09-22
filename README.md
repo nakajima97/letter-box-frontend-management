@@ -2,7 +2,7 @@
 
 ## Letter Box について
 
-顧客が従業員に対してメッセージを送れるアプリ。
+顧客が従業員に対して匿名でメッセージを送れるアプリ。
 
 ## Letter Box を構成する要素
 
@@ -29,7 +29,7 @@ https://github.com/yudai-nakajima/letter-box-backend
 https://github.com/yudai-nakajima/letter-box-api
 
 # 作成目的
-店員に対して感謝を気軽に伝える手段を提供するアプリを開発したいと思ったため
+店員に対して気軽にメッセージを送れるアプリを作成したいと思ったため。
 
 # 使用技術
 
