@@ -1,23 +1,29 @@
 import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+// import { css } from '@emotion/react';
+import { Box } from '@mui/system';
 
 import Header from '../../organisms/Header';
 import EmployeeListView from '../../organisms/EmployeeListView';
+import Sidebar from '../../organisms/Sidebar';
 
-const main = css`
-  width: 100%;
-  height: calc(100vh - 64px);
-`;
+const mainStyle = {
+  flexGrow: 1,
+  p: 3,
+  marginTop: '64px',
+};
 
 const Index: FC = () => (
   <>
-    <header>
-      <Header />
-    </header>
-    <main css={main}>
-      <EmployeeListView />
-    </main>
+    <Box sx={{ display: 'flex' }}>
+      <header>
+        <Header />
+      </header>
+      <Sidebar />
+      <Box component="main" sx={mainStyle}>
+        <EmployeeListView />
+      </Box>
+    </Box>
   </>
 );
 

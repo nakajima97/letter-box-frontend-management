@@ -7,7 +7,6 @@ import EmployeeListItem from '../EmployeeListItem';
 import EmployeeType from '../../../types/employeeType';
 
 const container = css`
-  border-right: 1px solid #000;
   height: 100%;
 `;
 
