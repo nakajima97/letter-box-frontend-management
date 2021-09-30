@@ -51,16 +51,18 @@ const Index: FC<Props> = ({ type, id }) => {
   }, [axiosClient, type, id]);
 
   return (
-    <div css={container}>
-      <Typography gutterBottom color="textPrimary">
-        メッセージ一覧
-      </Typography>
-      {messages ? (
-        <MessageList messages={messages} />
-      ) : (
-        <Typography>メッセージは0件です。</Typography>
-      )}
-    </div>
+    <>
+      <div css={container}>
+        <Typography gutterBottom color="textPrimary">
+          メッセージ一覧
+        </Typography>
+        {messages ? (
+          <MessageList messages={messages} />
+        ) : (
+          <Typography>メッセージは0件です。</Typography>
+        )}
+      </div>
+    </>
   );
 };
 
