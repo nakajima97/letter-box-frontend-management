@@ -48,19 +48,21 @@ const Index: FC = () => {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-    >
-      <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          LetterBox
-        </Typography>
-        <Button color="inherit" onClick={clickLogoutButton}>
-          {buttonText}
-        </Button>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      >
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            LetterBox
+          </Typography>
+          <Button color="inherit" onClick={clickLogoutButton}>
+            {buttonText}
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </>
   );
 };
 
