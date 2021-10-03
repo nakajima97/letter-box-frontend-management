@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Container, TextField, Typography, Button } from '@mui/material';
+import { Container, TextField, Typography, Button, Grid } from '@mui/material';
+import { Box } from '@mui/system';
 
 const Index: FC = () => (
   <>
@@ -7,26 +8,35 @@ const Index: FC = () => (
       <Typography component="h1" variant="h5" sx={{ textAlign: 'center' }}>
         従業員登録
       </Typography>
-      <TextField required label="名字" margin="normal" sx={{ width: '50%' }} />
-      <TextField required label="名前" margin="normal" sx={{ width: '50%' }} />
-      <TextField required fullWidth label="ログインID" margin="normal" />
-      <TextField
-        required
-        fullWidth
-        label="パスワード"
-        margin="normal"
-        type="password"
-      />
-      <TextField
-        required
-        fullWidth
-        label="パスワード再入力"
-        margin="normal"
-        type="password"
-      />
-      <Button variant="contained" color="primary" fullWidth>
-        登録
-      </Button>
+      <Box component="form" noValidate sx={{ mt: 3 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField required label="名字" fullWidth />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField required label="名前" fullWidth />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField required fullWidth label="ログインID" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField required fullWidth label="パスワード" type="password" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              fullWidth
+              label="パスワード再入力"
+              type="password"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button variant="contained" color="primary" fullWidth>
+              登録
+            </Button>
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
   </>
 );
