@@ -8,7 +8,8 @@ import {
   ListItemIcon,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import { Mail } from '@mui/icons-material';
+import EmailIcon from '@mui/icons-material/Email';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useHistory } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -18,6 +19,10 @@ const Index: FC = () => {
 
   const onClickMail = () => {
     history.push('/store');
+  };
+
+  const onClickEmployeeRegistration = () => {
+    history.push('/store/employee/registration');
   };
 
   return (
@@ -38,9 +43,17 @@ const Index: FC = () => {
           <List>
             <ListItem button onClick={onClickMail}>
               <ListItemIcon>
-                <Mail />
+                <EmailIcon />
               </ListItemIcon>
               <ListItemText primary="メッセージ" />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem button onClick={onClickEmployeeRegistration}>
+              <ListItemIcon>
+                <PersonAddIcon />
+              </ListItemIcon>
+              <ListItemText primary="従業員登録" />
             </ListItem>
           </List>
         </Box>
