@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 import Header from '../../organisms/Header';
 import Sidebar from '../../organisms/Sidebar';
 import EmployeeRegistrationForm from '../../organisms/EmployeeRegistrationForm';
+import Message from '../../organisms/Message';
 
 const mainStyle = {
   width: '100%',
@@ -13,6 +14,7 @@ const mainStyle = {
 
 const Index: FC = () => (
   <>
+    <Message />
     <Box sx={{ display: 'flex' }}>
       <header>
         <Header />

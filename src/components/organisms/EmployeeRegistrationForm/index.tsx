@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 
 import createAxiosClient from '../../../api/client';
 import { AuthContext } from '../../../contexts/Auth';
+import { MessageContext } from '../../../contexts/Message';
 
 const Index: FC = () => {
   const [firstName, setFirstName] = useState('');
@@ -12,8 +13,17 @@ const Index: FC = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const { loggedInUserId } = useContext(AuthContext);
+  const { setMessage, setSeverity } = useContext(MessageContext);
 
   const axiosClient = createAxiosClient();
+
+  const clearForm = () => {
+    setFirstName('');
+    setLastName('');
+    setLoginId('');
+    setPassword('');
+    setPasswordConfirm('');
+  };
 
   const handleSignUp = (event: FormEvent) => {
     const params = {
@@ -23,10 +33,15 @@ const Index: FC = () => {
 
     axiosClient
       .post('employee', params)
-      // eslint-disable-next-line
-      .then((res) => console.log(res))
-      // eslint-disable-next-line
-      .catch((err) => console.log(err));
+      .then(() => {
+        setMessage('従業員を登録しました。');
+        setSeverity('success');
+        clearForm();
+      })
+      .catch(() => {
+        setMessage('従業員登録に失敗しました。');
+        setSeverity('error');
+      });
 
     event.preventDefault();
   };
