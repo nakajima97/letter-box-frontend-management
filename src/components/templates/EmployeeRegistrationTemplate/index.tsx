@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Box } from '@mui/system';
 
 import Header from '../../organisms/Header';
+import EmployeeRegistrationForm from '../../organisms/EmployeeRegistrationForm';
 
 const mainStyle = {
   width: '100%',
@@ -15,7 +16,7 @@ const Index: FC = () => (
       <Header />
     </header>
     <Box component="main" sx={mainStyle}>
-      従業員登録ページ
+      <EmployeeRegistrationForm />
     </Box>
   </>
 );
