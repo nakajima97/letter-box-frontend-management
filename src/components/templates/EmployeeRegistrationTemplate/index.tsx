@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Box } from '@mui/system';
 
 import Header from '../../organisms/Header';
+import Sidebar from '../../organisms/Sidebar';
 import EmployeeRegistrationForm from '../../organisms/EmployeeRegistrationForm';
 
 const mainStyle = {
@@ -12,11 +13,14 @@ const mainStyle = {
 
 const Index: FC = () => (
   <>
-    <header>
-      <Header />
-    </header>
-    <Box component="main" sx={mainStyle}>
-      <EmployeeRegistrationForm />
+    <Box sx={{ display: 'flex' }}>
+      <header>
+        <Header />
+      </header>
+      <Sidebar />
+      <Box component="main" sx={mainStyle}>
+        <EmployeeRegistrationForm />
+      </Box>
     </Box>
   </>
 );
