@@ -1,6 +1,4 @@
 import { FC } from 'react';
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { Divider, ListItem, ListItemText, ListItemButton } from '@mui/material';
 
 type Props = {
@@ -10,13 +8,13 @@ type Props = {
   onClick: (employeeId: number) => void;
 };
 
-const item = css`
-  padding: 8px;
-`;
+const item = {
+  padding: '8px',
+};
 
 const Index: FC<Props> = ({ id, firstName, lastName, onClick }) => (
   <>
-    <ListItem css={item} key={id}>
+    <ListItem sx={item} key={id}>
       <ListItemButton onClick={() => onClick(id)}>
         <ListItemText primary={`${firstName} ${lastName}`} />
       </ListItemButton>

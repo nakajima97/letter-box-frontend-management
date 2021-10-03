@@ -1,7 +1,6 @@
 import { FC, useState, useEffect, useMemo } from 'react';
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { Typography } from '@mui/material';
+import { Box } from '@mui/system';
 
 import dayjs from 'dayjs';
 import MessageList from '../../molecules/MessageList';
@@ -10,7 +9,6 @@ import MessageType from '../../../types/messageType';
 
 type ResponseType = {
   data: {
-    // eslint-disable-next-line
     message: string;
     data: [MessageType];
   };
@@ -21,10 +19,10 @@ type Props = {
   id: number;
 };
 
-const container = css`
-  width: 100%;
-  margin: 10px;
-`;
+const container = {
+  width: '100%',
+  margin: '10px',
+};
 
 const Index: FC<Props> = ({ type, id }) => {
   const [messages, setMessages] = useState<MessageType[] | undefined>(
@@ -52,7 +50,7 @@ const Index: FC<Props> = ({ type, id }) => {
 
   return (
     <>
-      <div css={container}>
+      <Box sx={container}>
         <Typography gutterBottom color="textPrimary">
           メッセージ一覧
         </Typography>
@@ -61,7 +59,7 @@ const Index: FC<Props> = ({ type, id }) => {
         ) : (
           <Typography>メッセージは0件です。</Typography>
         )}
-      </div>
+      </Box>
     </>
   );
 };

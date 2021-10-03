@@ -1,18 +1,17 @@
 import { FC, useEffect, useContext, useMemo, useState } from 'react';
-import { Typography } from '@mui/material';
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { useHistory } from 'react-router-dom';
+import { Typography } from '@mui/material';
+import { Box } from '@mui/system';
 
 import EmployeeList from '../../molecules/EmployeeList';
 import createAxiosClient from '../../../api/client';
 import { AuthContext } from '../../../contexts/Auth';
 import EmployeeType from '../../../types/employeeType';
 
-const container = css`
-  width: 100%;
-  margin: 10px;
-`;
+const container = {
+  width: '100%',
+  margin: '10px',
+};
 
 type ResponseType = {
   employees: EmployeeType[];
@@ -44,10 +43,10 @@ const Index: FC = () => {
     return <Typography>従業員が登録されておりません。</Typography>;
 
   return (
-    <div css={container}>
+    <Box sx={container}>
       <Typography gutterBottom>従業員一覧</Typography>
       <EmployeeList employees={employees} onClick={onClick} />
-    </div>
+    </Box>
   );
 };
 
