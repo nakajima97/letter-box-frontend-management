@@ -1,9 +1,8 @@
 import { FC, useState, useContext } from 'react';
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { TextField, Button, Typography } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { Box } from '@mui/system';
 
 import LoginTypeSelector from '../../molecules/LoginTypeSelector';
 import LoginType from '../../../types/loginType';
@@ -11,15 +10,11 @@ import createAxiosClient from '../../../api/client';
 import { MessageContext } from '../../../contexts/Message';
 import { AuthContext } from '../../../contexts/Auth';
 
-const container = css`
-  display: grid;
-  gap: 15px;
-  padding-top: 10px;
-`;
-
-const title = css`
-  text-align: center;
-`;
+const container = {
+  display: 'grid',
+  gap: '15px',
+  paddingTop: '10px',
+};
 
 const Index: FC = () => {
   const [id, setId] = useState('');
@@ -93,10 +88,10 @@ const Index: FC = () => {
 
   return (
     <>
-      <Typography component="h1" variant="h5" css={title}>
+      <Typography component="h1" variant="h5" sx={{ textAlign: 'center' }}>
         ログイン
       </Typography>
-      <form css={container}>
+      <Box sx={container}>
         <div>
           <LoginTypeSelector value={loginType} onChange={setLoginType} />
         </div>
@@ -129,7 +124,7 @@ const Index: FC = () => {
             ログイン
           </Button>
         </div>
-      </form>
+      </Box>
     </>
   );
 };

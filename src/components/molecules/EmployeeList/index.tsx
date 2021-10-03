@@ -1,14 +1,12 @@
 import { FC } from 'react';
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { List } from '@mui/material';
 
 import EmployeeListItem from '../EmployeeListItem';
 import EmployeeType from '../../../types/employeeType';
 
-const container = css`
-  height: 100%;
-`;
+const container = {
+  height: '100%',
+};
 
 type Props = {
   employees: EmployeeType[] | undefined;
@@ -16,7 +14,7 @@ type Props = {
 };
 
 const Index: FC<Props> = ({ employees, onClick }) => (
-  <List css={container}>
+  <List sx={container}>
     {employees &&
       employees.map((e) => (
         <EmployeeListItem

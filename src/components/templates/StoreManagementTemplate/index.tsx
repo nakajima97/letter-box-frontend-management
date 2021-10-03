@@ -1,6 +1,4 @@
 import { FC } from 'react';
-/** @jsxImportSource @emotion/react */
-// import { css } from '@emotion/react';
 import { Box } from '@mui/system';
 
 import Header from '../../organisms/Header';
