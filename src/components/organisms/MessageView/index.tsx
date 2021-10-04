@@ -36,7 +36,6 @@ const Index: FC<Props> = ({ type, id }) => {
     axiosClient
       .get(`messages?${type}_id=${id}`)
       .then((res: ResponseType) => {
-        setIsLoading(false);
         if (res.data.message !== 'No data') {
           setMessages(
             res.data.data.map((d) => ({
@@ -48,10 +47,11 @@ const Index: FC<Props> = ({ type, id }) => {
         }
       })
       // eslint-disable-next-line
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
   }, [axiosClient, type, id]);
 
-  const screenAfterLoading = () => (
+  const ScreenAfterLoading: FC = () => (
     <>
       {messages ? (
         <MessageList messages={messages} />
@@ -67,7 +67,7 @@ const Index: FC<Props> = ({ type, id }) => {
         <Typography gutterBottom color="textPrimary">
           メッセージ一覧
         </Typography>
-        {isLoading ? <Loading /> : screenAfterLoading()}
+        {isLoading ? <Loading /> : <ScreenAfterLoading />}
       </Box>
     </>
   );
