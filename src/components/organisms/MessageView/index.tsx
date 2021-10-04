@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 
 import dayjs from 'dayjs';
 import MessageList from '../../molecules/MessageList';
+import Loading from '../../molecules/Loading';
 import createAxiosClient from '../../../api/client';
 import MessageType from '../../../types/messageType';
 
@@ -28,12 +29,14 @@ const Index: FC<Props> = ({ type, id }) => {
   const [messages, setMessages] = useState<MessageType[] | undefined>(
     undefined,
   );
+  const [isLoading, setIsLoading] = useState(true);
   const axiosClient = useMemo(() => createAxiosClient(), []);
 
   useEffect(() => {
     axiosClient
       .get(`messages?${type}_id=${id}`)
       .then((res: ResponseType) => {
+        setIsLoading(false);
         if (res.data.message !== 'No data') {
           setMessages(
             res.data.data.map((d) => ({
@@ -48,17 +51,23 @@ const Index: FC<Props> = ({ type, id }) => {
       .catch((err) => console.log(err));
   }, [axiosClient, type, id]);
 
+  const screenAfterLoading = () => (
+    <>
+      {messages ? (
+        <MessageList messages={messages} />
+      ) : (
+        <Typography>メッセージは0件です。</Typography>
+      )}
+    </>
+  );
+
   return (
     <>
       <Box sx={container}>
         <Typography gutterBottom color="textPrimary">
           メッセージ一覧
         </Typography>
-        {messages ? (
-          <MessageList messages={messages} />
-        ) : (
-          <Typography>メッセージは0件です。</Typography>
-        )}
+        {isLoading ? <Loading /> : screenAfterLoading()}
       </Box>
     </>
   );
