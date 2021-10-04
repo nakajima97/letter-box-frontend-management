@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 
 import dayjs from 'dayjs';
 import MessageList from '../../molecules/MessageList';
+import Loading from '../../molecules/Loading';
 import createAxiosClient from '../../../api/client';
 import MessageType from '../../../types/messageType';
 
@@ -28,6 +29,7 @@ const Index: FC<Props> = ({ type, id }) => {
   const [messages, setMessages] = useState<MessageType[] | undefined>(
     undefined,
   );
+  const [isLoading, setIsLoading] = useState(true);
   const axiosClient = useMemo(() => createAxiosClient(), []);
 
   useEffect(() => {
@@ -45,8 +47,19 @@ const Index: FC<Props> = ({ type, id }) => {
         }
       })
       // eslint-disable-next-line
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
   }, [axiosClient, type, id]);
+
+  const ScreenAfterLoading: FC = () => (
+    <>
+      {messages ? (
+        <MessageList messages={messages} />
+      ) : (
+        <Typography>メッセージは0件です。</Typography>
+      )}
+    </>
+  );
 
   return (
     <>
@@ -54,11 +67,7 @@ const Index: FC<Props> = ({ type, id }) => {
         <Typography gutterBottom color="textPrimary">
           メッセージ一覧
         </Typography>
-        {messages ? (
-          <MessageList messages={messages} />
-        ) : (
-          <Typography>メッセージは0件です。</Typography>
-        )}
+        {isLoading ? <Loading /> : <ScreenAfterLoading />}
       </Box>
     </>
   );
