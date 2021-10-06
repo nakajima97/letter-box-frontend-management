@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import StoreCommonComponent from './index';
+import { MemoryRouter } from 'react-router-dom';
 
+import StoreCommonComponent from './index';
 import { MessageProvider } from '../../../contexts/Message';
 
 type Props = {
@@ -10,9 +11,11 @@ type Props = {
 const Story: FC<Props> = ({ storyFn }) => storyFn();
 
 const myDecorator = (storyFn: () => JSX.Element) => (
-  <MessageProvider>
-    <Story storyFn={storyFn} />
-  </MessageProvider>
+  <MemoryRouter>
+    <MessageProvider>
+      <Story storyFn={storyFn} />
+    </MessageProvider>
+  </MemoryRouter>
 );
 
 export default {
